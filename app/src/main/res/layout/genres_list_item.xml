@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="tag"
+            type="com.example.musicwiki.models.genres.Tag" />
+
+        <variable
+            name="shared_view_model"
+            type="com.example.musicwiki.viewmodels.SharedViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:elevation="30dp"
+            app:cardCornerRadius="30dp"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:onClick="@{() -> shared_view_model.onGenresClick(tag.name)}"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@{tag.name}"
+                    android:layout_margin="20dp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+</layout>

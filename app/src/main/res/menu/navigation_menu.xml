@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/albumsListFragment"
+        android:icon="@drawable/ic_circle"
+        android:title="Albums" />
+
+    <item
+        android:id="@+id/artistsListFragment"
+        android:title="Artists"
+        android:icon="@drawable/ic_circle"/>
+
+    <item
+        android:id="@+id/tracksListFragment"
+        android:title="Tracks"
+        android:icon="@drawable/ic_circle"/>
+</menu>
