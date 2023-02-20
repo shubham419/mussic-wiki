@@ -7,15 +7,14 @@
 
         <variable
             name="model"
-            type="com.example.musicwiki.viewmodels.ArtistDetailFragmentViewModel" />
+            type="com.example.musicwiki.viewmodels.AlbumDetailFragmentViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".fragment.ArtistDetailFragment">
-
+        tools:context=".fragment.AlbumDetailFragment">
 
         <ImageView
             android:id="@+id/imageView"
@@ -41,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
-                    android:text="@{model.artist.artist.name}"
+                    android:text="@{model.album.album.name}"
                     android:textAllCaps="true"
                     android:textColor="@color/black"
                     android:textSize="35sp"
@@ -54,25 +53,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Playcount :- " />
+                        android:text="Artist :- " />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@{model.artist.artist.stats.playcount}"
+                        android:text="@{model.album.album.artist}"
                         android:textColor="@color/black" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Follower :- " />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@{model.artist.artist.stats.listeners}"
-                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -90,7 +79,7 @@
                         android:id="@+id/summery"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="@{model.artist.artist.bio.summary}"
+                        android:text="@{model.album.album.wiki.summary}"
                         android:textColor="#151414"
                         android:textSize="20sp" />
 
@@ -100,51 +89,6 @@
 
         </androidx.cardview.widget.CardView>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Top Tacks"
-                    android:textColor="@color/black"
-                    android:paddingStart="20dp"
-                    />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="176dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Top Album"
-                    android:textColor="@color/black"
-                    android:paddingStart="20dp"
-                    />
-
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view_album"
-                    android:layout_width="match_parent"
-                    android:layout_height="176dp" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view_genres"
-                    android:layout_width="match_parent"
-                    android:layout_height="176dp"
-                    />
-
-            </LinearLayout>
-
-        </ScrollView>
 
     </LinearLayout>
 </layout>

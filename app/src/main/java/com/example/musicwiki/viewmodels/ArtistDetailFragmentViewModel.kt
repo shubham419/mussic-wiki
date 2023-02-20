@@ -9,6 +9,7 @@ import com.example.musicwiki.models.artistdetail.ArtistDetail
 import com.example.musicwiki.models.artists.ArtistsList
 import com.example.musicwiki.models.artisttopalbum.ArtistTopAlbum
 import com.example.musicwiki.models.artisttoptrack.ArtistTopTrack
+import com.example.musicwiki.models.genres.TopGenresList
 import com.example.musicwiki.models.track.TracksList
 import com.example.musicwiki.repository.GenresRepository
 import kotlinx.coroutines.Dispatchers
@@ -27,6 +28,9 @@ class ArtistDetailFragmentViewModel(artistName: String) : ViewModel(){
         viewModelScope.launch(Dispatchers.IO) {
             repository.getArtistTopAlbum(artistName)
         }
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.getGenres()
+        }
     }
 
     val tracks: LiveData<ArtistTopTrack>
@@ -37,5 +41,8 @@ class ArtistDetailFragmentViewModel(artistName: String) : ViewModel(){
 
     val album: LiveData<ArtistTopAlbum>
         get() = repository.artistTopAlbumList
+
+    val genres: LiveData<TopGenresList>
+        get() = repository.genres
 
 }

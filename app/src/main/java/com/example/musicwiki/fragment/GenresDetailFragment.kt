@@ -47,6 +47,12 @@ class GenresDetailFragment : Fragment() {
             }
         }
 
+        sharedViewModel.albumDetailTransaction.observe(viewLifecycleOwner){
+            if(it){
+                findNavController().navigate(R.id.action_genresDetailFragment_to_albumDetailFragment)
+            }
+        }
+
 
         return binding.root
     }

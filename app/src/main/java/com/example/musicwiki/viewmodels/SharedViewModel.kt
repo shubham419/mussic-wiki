@@ -13,11 +13,17 @@ class SharedViewModel : ViewModel() {
     private val _artistDetailTransaction = MutableLiveData<Boolean>()
     val artistsDetailTransaction: LiveData<Boolean> get() = _artistDetailTransaction
 
+    private val _albumDetailTransaction = MutableLiveData<Boolean>()
+    val albumDetailTransaction: LiveData<Boolean> get() = _albumDetailTransaction
+
     private val _genres = MutableLiveData<String>()
     val genres: LiveData<String> = _genres
 
     private val _artistName = MutableLiveData<String>()
     val artistName: LiveData<String> = _artistName
+
+    private val _albumName = MutableLiveData<String>()
+    val albumName: LiveData<String> = _albumName
 
 
     fun onGenresClick(tag: String) {
@@ -28,6 +34,12 @@ class SharedViewModel : ViewModel() {
     fun onArtistClick(artistName: String){
         _artistName.value = artistName
         _artistDetailTransaction.value = true
+        _transition.value =false
+    }
+
+    fun onAlbumClick(albumName: String){
+        _albumName.value = albumName
+        _albumDetailTransaction.value = true
         _transition.value =false
     }
 

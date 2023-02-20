@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_genresDetailFragment_to_artistDetailFragment"
             app:destination="@id/artistDetailFragment" />
+        <action
+            android:id="@+id/action_genresDetailFragment_to_albumDetailFragment"
+            app:destination="@id/albumDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/genresListFragment"
@@ -29,4 +32,8 @@
         android:name="com.example.musicwiki.fragment.ArtistDetailFragment"
         android:label="fragment_artist_detail"
         tools:layout="@layout/fragment_artist_detail" />
+    <fragment
+        android:id="@+id/albumDetailFragment"
+        android:name="com.example.musicwiki.fragment.AlbumDetailFragment"
+        android:label="AlbumDetailFragment" />
 </navigation>

@@ -1,6 +1,7 @@
 package com.example.musicwiki.api
 
 import com.example.musicwiki.models.album.AlbumList
+import com.example.musicwiki.models.albumdetail.AlbumDetail
 import com.example.musicwiki.models.artistdetail.ArtistDetail
 import com.example.musicwiki.models.artists.ArtistsList
 import com.example.musicwiki.models.artisttopalbum.ArtistTopAlbum
@@ -84,5 +85,14 @@ interface GenresService {
         @Query("api_key") api_key: String = "735a8c90797502423ae992ef346f6b16",
         @Query("format") format: String = "json"
     ): Response<ArtistDetail>
+
+    @GET("/2.0")
+    suspend fun getAlbumDetail(
+        @Query("method") method: String = "album.getinfo",
+        @Query("api_key") api_key: String = "735a8c90797502423ae992ef346f6b16",
+        @Query("artist") artistName: String = "cher",
+        @Query("album") albumName:String = "Believe",
+        @Query("format") format: String = "json"
+    ): Response<AlbumDetail>
 
 }

@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.musicwiki.api.GenresService
 import com.example.musicwiki.models.album.AlbumList
+import com.example.musicwiki.models.albumdetail.AlbumDetail
 import com.example.musicwiki.models.artistdetail.ArtistDetail
 import com.example.musicwiki.models.artists.ArtistsList
 import com.example.musicwiki.models.artisttopalbum.ArtistTopAlbum
@@ -37,6 +38,9 @@ class GenresRepository(private val genresService: GenresService) {
 
     private val _artistDetail = MutableLiveData<ArtistDetail>()
     val artistDetail: LiveData<ArtistDetail> = _artistDetail
+
+    private val _albumDetail = MutableLiveData<AlbumDetail>()
+    val albumDetail: LiveData<AlbumDetail> = _albumDetail
 
     suspend fun getGenres() {
         val result = genresService.getGenres()
@@ -93,6 +97,14 @@ class GenresRepository(private val genresService: GenresService) {
             _artistDetail.postValue(result.body())
         }
     }
+
+    suspend fun getAlbumDetail(artistName: String, albumName:String){
+        val result = genresService.getAlbumDetail(artistName = artistName, albumName = albumName)
+        if (result?.body() != null) {
+            _albumDetail.postValue(result.body())
+        }
+    }
+
 
 
 }

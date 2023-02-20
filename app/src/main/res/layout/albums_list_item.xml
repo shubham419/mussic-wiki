@@ -4,6 +4,10 @@
 
     <data>
         <variable
+            name="shared_model"
+            type="com.example.musicwiki.viewmodels.SharedViewModel" />
+
+        <variable
             name="album"
             type="com.example.musicwiki.models.album.Album" />
     </data>
@@ -24,7 +28,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:onClick="@{() -> shared_model.onAlbumClick(album.name)}"
+                >
 
 
                 <ImageView

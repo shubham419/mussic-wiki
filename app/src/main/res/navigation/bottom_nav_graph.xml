@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_nav_graph"
-    app:startDestination="@id/albumsListFragment">
+    app:startDestination="@id/tracksListFragment">
 
     <fragment
         android:id="@+id/albumsListFragment"
@@ -19,5 +19,6 @@
         android:id="@+id/tracksListFragment"
         android:name="com.example.musicwiki.fragment.TracksListFragment"
         android:label="fragment_tracks_list"
-        tools:layout="@layout/fragment_tracks_list" />
+        tools:layout="@layout/fragment_tracks_list"
+        />
 </navigation>

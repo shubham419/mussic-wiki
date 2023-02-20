@@ -13,6 +13,7 @@ import com.example.musicwiki.R
 import com.example.musicwiki.adapter.ArtistTopAlbumListAdapter
 import com.example.musicwiki.adapter.ArtistTopTrackListAdapter
 import com.example.musicwiki.adapter.ArtistsListAdapter
+import com.example.musicwiki.adapter.MainRecyclerViewAdapter
 import com.example.musicwiki.databinding.FragmentArtistDetailBinding
 import com.example.musicwiki.databinding.FragmentArtistsListBinding
 import com.example.musicwiki.viewmodelfactory.ArtistDetailFragmentViewModelFactory
@@ -27,6 +28,8 @@ class ArtistDetailFragment : Fragment() {
     lateinit var binding: FragmentArtistDetailBinding
     private lateinit var adapter: ArtistTopTrackListAdapter
     private lateinit var adapterAlbum: ArtistTopAlbumListAdapter
+    private lateinit var adapterGenres: MainRecyclerViewAdapter
+
 
 
     override fun onCreateView(
@@ -40,6 +43,7 @@ class ArtistDetailFragment : Fragment() {
 
         adapter = ArtistTopTrackListAdapter()
         adapterAlbum = ArtistTopAlbumListAdapter()
+        adapterGenres = MainRecyclerViewAdapter(sharedViewModel)
         viewModel.tracks.observe(viewLifecycleOwner){
 //            Log.d("abcde", it.toString())
             if(it != null) adapter.setContentList(it.toptracks.track.toMutableList())
@@ -49,12 +53,20 @@ class ArtistDetailFragment : Fragment() {
             if(it != null) adapterAlbum.setContentList(it.topalbums.album.toMutableList())
         }
 
+        viewModel.genres.observe(viewLifecycleOwner) {
+            if (it != null) {
+                adapterGenres.setContentList(it.toptags.tag.toMutableList())
+            }
+        }
+
         binding.model = viewModel
         binding.lifecycleOwner = this
         binding.recyclerView.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
         binding.recyclerView.adapter = this.adapter
         binding.recyclerViewAlbum.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
         binding.recyclerViewAlbum.adapter = this.adapterAlbum
+        binding.recyclerViewGenres.adapter = this.adapterGenres
+        binding.recyclerViewGenres.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
         return binding.root
     }
 
