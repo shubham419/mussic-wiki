@@ -7,6 +7,7 @@ import com.example.musicwiki.api.GenresService
 import com.example.musicwiki.api.RetrofitHelper
 import com.example.musicwiki.models.artistdetail.ArtistDetail
 import com.example.musicwiki.models.artists.ArtistsList
+import com.example.musicwiki.models.artisttopalbum.ArtistTopAlbum
 import com.example.musicwiki.models.artisttoptrack.ArtistTopTrack
 import com.example.musicwiki.models.track.TracksList
 import com.example.musicwiki.repository.GenresRepository
@@ -23,6 +24,9 @@ class ArtistDetailFragmentViewModel(artistName: String) : ViewModel(){
         viewModelScope.launch(Dispatchers.IO) {
             repository.getArtistTopTracks(artistName)
         }
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.getArtistTopAlbum(artistName)
+        }
     }
 
     val tracks: LiveData<ArtistTopTrack>
@@ -30,5 +34,8 @@ class ArtistDetailFragmentViewModel(artistName: String) : ViewModel(){
 
     val artist: LiveData<ArtistDetail>
         get() = repository.artistDetail
+
+    val album: LiveData<ArtistTopAlbum>
+        get() = repository.artistTopAlbumList
 
 }
