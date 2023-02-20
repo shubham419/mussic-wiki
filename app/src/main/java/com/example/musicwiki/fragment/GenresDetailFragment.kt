@@ -32,7 +32,7 @@ class GenresDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = FragmentGenresDetailBinding.inflate(inflater, container, false)
-
+        loadFragment(TracksListFragment())
         val tageName = sharedViewModel.genres.value.toString()
         val viewModel = ViewModelProvider(
             this, GenresDetailFragmentViewModelFactory(tageName)
@@ -53,8 +53,22 @@ class GenresDetailFragment : Fragment() {
             }
         }
 
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.tracksListFragment -> {loadFragment(TracksListFragment()) ; true}
+                R.id.artistsListFragment -> {loadFragment(ArtistsListFragment()) ; true}
+                R.id.albumsListFragment -> {loadFragment(AlbumsListFragment()) ; true}
+                else -> {loadFragment(AlbumsListFragment()) ; true}
+            }
+        }
 
         return binding.root
+    }
+
+    private  fun loadFragment(fragment: Fragment){
+        val transaction = (context as AppCompatActivity).supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.frame_layout,fragment)
+        transaction.commit()
     }
 
 }

@@ -3,7 +3,6 @@ package com.example.musicwiki.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.musicwiki.models.genres.Tag
 
 class SharedViewModel : ViewModel() {
 
@@ -29,18 +28,20 @@ class SharedViewModel : ViewModel() {
     fun onGenresClick(tag: String) {
         _genres.value = tag
         _transition.value = true
+        _transition.value = false
     }
 
-    fun onArtistClick(artistName: String){
+    fun onArtistClick(artistName: String) {
         _artistName.value = artistName
         _artistDetailTransaction.value = true
-        _transition.value =false
+        _artistDetailTransaction.value = false
     }
 
-    fun onAlbumClick(albumName: String){
+    fun onAlbumClick(albumName: String, artistName: String) {
+        _artistName.value = artistName
         _albumName.value = albumName
         _albumDetailTransaction.value = true
-        _transition.value =false
+        _albumDetailTransaction.value = false
     }
 
 }

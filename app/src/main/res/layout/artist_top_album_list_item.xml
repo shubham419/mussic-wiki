@@ -4,6 +4,9 @@
 
     <data>
         <variable
+            name="shared_view_model"
+            type="com.example.musicwiki.viewmodels.SharedViewModel" />
+        <variable
             name="album"
             type="com.example.musicwiki.models.artisttopalbum.Album" />
     </data>
@@ -21,7 +24,11 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:onClick="@{() -> shared_view_model.onAlbumClick(album.name, album.artist.name)}"
+                >
 
                 <ImageView
                     android:id="@+id/image"

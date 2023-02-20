@@ -3,11 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <variable
-            name="view_model"
-            type="com.example.musicwiki.viewmodels.SharedViewModel" />
-    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,8 +13,6 @@
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/activity_main_nav_host_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
-            state="@{view_model.transition}"
-            token="@{false}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -28,40 +21,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:navGraph="@navigation/nav_graph" />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/bottom_nav_host"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="-12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_main_nav_host_fragment"
-            app:navGraph="@navigation/bottom_nav_graph"
-            android:visibility="gone"
-            state="@{view_model.transition}"
-            token="@{true}"
-            />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation_view"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="25dp"
-            android:background="@drawable/curved_corner"
-            android:elevation="2dp"
-            app:itemIconSize="25dp"
-            app:itemIconTint="@drawable/item_selector"
-            app:itemTextColor="@drawable/item_selector"
-            app:labelVisibilityMode="selected"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:menu="@menu/navigation_menu"
-            android:visibility="gone"
-            state="@{view_model.transition}"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

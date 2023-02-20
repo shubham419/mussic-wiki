@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/albumsListFragment"
-        android:icon="@drawable/ic_circle"
-        android:title="Albums" />
+        android:id="@+id/tracksListFragment"
+        android:title="Tracks"
+        android:icon="@drawable/ic_circle"/>
 
     <item
         android:id="@+id/artistsListFragment"
@@ -12,7 +12,7 @@
         android:icon="@drawable/ic_circle"/>
 
     <item
-        android:id="@+id/tracksListFragment"
-        android:title="Tracks"
-        android:icon="@drawable/ic_circle"/>
+        android:id="@+id/albumsListFragment"
+        android:icon="@drawable/ic_circle"
+        android:title="Albums" />
 </menu>

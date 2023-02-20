@@ -6,8 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.musicwiki.databinding.ArtistTopAlbumListItemBinding
 import com.example.musicwiki.databinding.ArtistTopTrackListItemBinding
 import com.example.musicwiki.models.artisttopalbum.Album
+import com.example.musicwiki.viewmodels.SharedViewModel
 
-class ArtistTopAlbumListAdapter : RecyclerView.Adapter<ArtistTopAlbumListAdapter.MyViewHolder>() {
+class ArtistTopAlbumListAdapter(val sharedViewModel: SharedViewModel) : RecyclerView.Adapter<ArtistTopAlbumListAdapter.MyViewHolder>() {
 
     var list = mutableListOf<Album>()
 
@@ -30,6 +31,6 @@ class ArtistTopAlbumListAdapter : RecyclerView.Adapter<ArtistTopAlbumListAdapter
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.viewDataBinding.album = this.list[position]
-
+        holder.viewDataBinding.sharedViewModel = sharedViewModel
     }
 }

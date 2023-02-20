@@ -6,11 +6,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.musicwiki.api.GenresService
 import com.example.musicwiki.api.RetrofitHelper
 import com.example.musicwiki.models.artistdetail.ArtistDetail
-import com.example.musicwiki.models.artists.ArtistsList
 import com.example.musicwiki.models.artisttopalbum.ArtistTopAlbum
 import com.example.musicwiki.models.artisttoptrack.ArtistTopTrack
 import com.example.musicwiki.models.genres.TopGenresList
-import com.example.musicwiki.models.track.TracksList
 import com.example.musicwiki.repository.GenresRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

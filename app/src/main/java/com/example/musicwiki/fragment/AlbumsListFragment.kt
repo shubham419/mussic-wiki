@@ -35,7 +35,7 @@ class AlbumsListFragment : Fragment() {
             }
         }
 
-        adapter = AlbumsListAdapter()
+        adapter = AlbumsListAdapter(sharedViewModel)
 
         binding.recyclerView.adapter = this.adapter
 

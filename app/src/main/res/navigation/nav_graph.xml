@@ -31,9 +31,23 @@
         android:id="@+id/artistDetailFragment"
         android:name="com.example.musicwiki.fragment.ArtistDetailFragment"
         android:label="fragment_artist_detail"
-        tools:layout="@layout/fragment_artist_detail" />
+        tools:layout="@layout/fragment_artist_detail" >
+        <action
+            android:id="@+id/action_artistDetailFragment_to_genresDetailFragment"
+            app:destination="@id/genresDetailFragment" />
+        <action
+            android:id="@+id/action_artistDetailFragment_to_albumDetailFragment"
+            app:destination="@id/albumDetailFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/albumDetailFragment"
         android:name="com.example.musicwiki.fragment.AlbumDetailFragment"
-        android:label="AlbumDetailFragment" />
+        android:label="AlbumDetailFragment"
+        tools:layout="@layout/fragment_album_detail"
+        >
+        <action
+            android:id="@+id/action_albumDetailFragment_to_genresDetailFragment"
+            app:destination="@id/genresDetailFragment" />
+    </fragment>
 </navigation>

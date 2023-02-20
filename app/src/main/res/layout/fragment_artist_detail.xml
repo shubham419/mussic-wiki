@@ -135,7 +135,13 @@
                     android:id="@+id/recycler_view_album"
                     android:layout_width="match_parent"
                     android:layout_height="176dp" />
-
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Top Genres"
+                    android:textColor="@color/black"
+                    android:paddingStart="20dp"
+                    />
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view_genres"
                     android:layout_width="match_parent"

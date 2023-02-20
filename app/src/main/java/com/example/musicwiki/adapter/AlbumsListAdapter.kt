@@ -7,8 +7,9 @@ import com.example.musicwiki.databinding.AlbumsListItemBinding
 import com.example.musicwiki.databinding.ArtistsListItemBinding
 import com.example.musicwiki.models.album.Album
 import com.example.musicwiki.models.artists.Artist
+import com.example.musicwiki.viewmodels.SharedViewModel
 
-class AlbumsListAdapter : RecyclerView.Adapter<AlbumsListAdapter.MyViewHolder>() {
+class AlbumsListAdapter(val viewModel: SharedViewModel) : RecyclerView.Adapter<AlbumsListAdapter.MyViewHolder>() {
     var list = mutableListOf<Album>()
 
     fun setContentList(list: MutableList<Album>) {
@@ -30,6 +31,7 @@ class AlbumsListAdapter : RecyclerView.Adapter<AlbumsListAdapter.MyViewHolder>()
 
     override fun onBindViewHolder(holder: AlbumsListAdapter.MyViewHolder, position: Int) {
         holder.viewDataBinding.album = this.list[position]
+        holder.viewDataBinding.sharedModel = this.viewModel
     }
 
     override fun getItemCount(): Int = list.size

@@ -11,9 +11,11 @@ import com.example.musicwiki.repository.GenresRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class GenresDetailFragmentViewModel( private val tagName: String) : ViewModel() {
-    private var genresService: GenresService = RetrofitHelper.getInstance().create(GenresService::class.java)
+class GenresDetailFragmentViewModel(private val tagName: String) : ViewModel() {
+    private var genresService: GenresService =
+        RetrofitHelper.getInstance().create(GenresService::class.java)
     private val repository: GenresRepository = GenresRepository(genresService)
+
     init {
         viewModelScope.launch(Dispatchers.IO) {
             repository.getGenresDetail(tagName)
@@ -23,12 +25,11 @@ class GenresDetailFragmentViewModel( private val tagName: String) : ViewModel() 
     var genresTitle = MutableLiveData<String>("initial")
 
 
-
     val genresDetail: LiveData<GenresDetail>
         get() = repository.genresDetail
 
-    fun dataChanged(){
-        genresTitle.value =" genresDetail.value?.tag?.name"
+    fun dataChanged() {
+        genresTitle.value = " genresDetail.value?.tag?.name"
     }
 
 }
