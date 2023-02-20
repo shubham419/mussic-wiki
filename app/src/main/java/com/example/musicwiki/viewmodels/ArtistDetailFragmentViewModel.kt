@@ -27,7 +27,7 @@ class ArtistDetailFragmentViewModel(artistName: String) : ViewModel(){
             repository.getArtistTopAlbum(artistName)
         }
         viewModelScope.launch(Dispatchers.IO) {
-            repository.getGenres()
+            repository.getArtistTopGenres(artistName)
         }
     }
 

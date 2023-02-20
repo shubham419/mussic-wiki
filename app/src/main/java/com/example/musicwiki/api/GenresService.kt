@@ -9,6 +9,7 @@ import com.example.musicwiki.models.artisttoptrack.ArtistTopTrack
 import com.example.musicwiki.models.genres.TopGenresList
 import com.example.musicwiki.models.genresdetail.GenresDetail
 import com.example.musicwiki.models.track.TracksList
+import com.example.musicwiki.utils.Constants
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -18,7 +19,7 @@ interface GenresService {
     @GET("/2.0")
     suspend fun getGenres(
         @Query("method") method: String = "tag.getTopTags",
-        @Query("api_key") api_key: String = "735a8c90797502423ae992ef346f6b16",
+        @Query("api_key") api_key: String = Constants.API_KEY,
         @Query("format") format: String = "json"
     ): Response<TopGenresList>
 
@@ -26,7 +27,7 @@ interface GenresService {
     suspend fun getGenresDetail(
         @Query("method") method: String = "tag.getinfo",
         @Query("tag") tag: String = "disco",
-        @Query("api_key") api_key: String = "735a8c90797502423ae992ef346f6b16",
+        @Query("api_key") api_key: String = Constants.API_KEY,
         @Query("format") format: String = "json"
     ): Response<GenresDetail>
 
@@ -34,7 +35,7 @@ interface GenresService {
     suspend fun getData(
         @Query("method") method: String,
         @Query("tag") tag: String,
-        @Query("api_key") api_key: String = "735a8c90797502423ae992ef346f6b16",
+        @Query("api_key") api_key: String = Constants.API_KEY,
         @Query("format") format: String = "json"
     ): Response<GenresDetail>
 
@@ -42,7 +43,7 @@ interface GenresService {
     suspend fun getTopAlbums(
         @Query("method") method: String = "tag.gettopalbums",
         @Query("tag") tag: String = "disco",
-        @Query("api_key") api_key: String = "735a8c90797502423ae992ef346f6b16",
+        @Query("api_key") api_key: String = Constants.API_KEY,
         @Query("format") format: String = "json"
     ): Response<AlbumList>
 
@@ -50,7 +51,7 @@ interface GenresService {
     suspend fun getTopArtists(
         @Query("method") method: String = "tag.gettopartists",
         @Query("tag") tag: String = "disco",
-        @Query("api_key") api_key: String = "735a8c90797502423ae992ef346f6b16",
+        @Query("api_key") api_key: String = Constants.API_KEY,
         @Query("format") format: String = "json"
     ): Response<ArtistsList>
 
@@ -58,7 +59,7 @@ interface GenresService {
     suspend fun getTopTracks(
         @Query("method") method: String = "tag.gettoptracks",
         @Query("tag") tag: String = "disco",
-        @Query("api_key") api_key: String = "735a8c90797502423ae992ef346f6b16",
+        @Query("api_key") api_key: String = Constants.API_KEY,
         @Query("format") format: String = "json"
     ): Response<TracksList>
 
@@ -66,15 +67,15 @@ interface GenresService {
     suspend fun getArtistTopTracks(
         @Query("method") method: String = "artist.gettoptracks",
         @Query("artist") artistName: String = "cher",
-        @Query("api_key") api_key: String = "735a8c90797502423ae992ef346f6b16",
+        @Query("api_key") api_key: String = Constants.API_KEY,
         @Query("format") format: String = "json"
-    ):Response<ArtistTopTrack>
+    ): Response<ArtistTopTrack>
 
     @GET("/2.0")
     suspend fun getArtistTopAlbum(
         @Query("method") method: String = "artist.gettopalbums",
         @Query("artist") artistName: String = "cher",
-        @Query("api_key") api_key: String = "735a8c90797502423ae992ef346f6b16",
+        @Query("api_key") api_key: String = Constants.API_KEY,
         @Query("format") format: String = "json"
     ): Response<ArtistTopAlbum>
 
@@ -82,17 +83,35 @@ interface GenresService {
     suspend fun getArtistDetail(
         @Query("method") method: String = "artist.getinfo",
         @Query("artist") artistName: String = "cher",
-        @Query("api_key") api_key: String = "735a8c90797502423ae992ef346f6b16",
+        @Query("api_key") api_key: String = Constants.API_KEY,
         @Query("format") format: String = "json"
     ): Response<ArtistDetail>
 
     @GET("/2.0")
+    suspend fun getArtistTopGenres(
+        @Query("method") method: String = "artist.gettoptags",
+        @Query("artist") artistName: String = "cher",
+        @Query("api_key") api_key: String = Constants.API_KEY,
+        @Query("format") format: String = "json"
+    ): Response<TopGenresList>
+
+    @GET("/2.0")
     suspend fun getAlbumDetail(
         @Query("method") method: String = "album.getinfo",
-        @Query("api_key") api_key: String = "735a8c90797502423ae992ef346f6b16",
+        @Query("api_key") api_key: String = Constants.API_KEY,
         @Query("artist") artistName: String = "cher",
-        @Query("album") albumName:String = "Believe",
+        @Query("album") albumName: String = "Believe",
         @Query("format") format: String = "json"
     ): Response<AlbumDetail>
+
+    @GET("/2.0")
+    suspend fun getAlbumTopGenres(
+        @Query("method") method: String = "album.gettoptags",
+        @Query("artist") artistName: String = "cher",
+        @Query("album") albumName: String = "Believe",
+        @Query("api_key") api_key: String = Constants.API_KEY,
+        @Query("format") format: String = "json"
+    ): Response<TopGenresList>
+
 
 }

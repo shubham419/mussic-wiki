@@ -70,41 +70,53 @@ class GenresRepository(private val genresService: GenresService) {
         }
     }
 
-    suspend fun getTopTracks(tagName: String){
+    suspend fun getTopTracks(tagName: String) {
         val result = genresService.getTopTracks(tag = tagName)
         if (result?.body() != null) {
             _topTracksList.postValue(result.body())
         }
     }
 
-    suspend fun getArtistTopTracks(artistName: String){
+    suspend fun getArtistTopTracks(artistName: String) {
         val result = genresService.getArtistTopTracks(artistName = artistName)
         if (result?.body() != null) {
             _artistTopTracksList.postValue(result.body())
         }
     }
 
-    suspend fun getArtistTopAlbum(artistName: String){
+    suspend fun getArtistTopAlbum(artistName: String) {
         val result = genresService.getArtistTopAlbum(artistName = artistName)
         if (result?.body() != null) {
             _artistTopAlbumList.postValue(result.body())
         }
     }
 
-    suspend fun getArtistDetail(artistName: String){
+    suspend fun getArtistDetail(artistName: String) {
         val result = genresService.getArtistDetail(artistName = artistName)
         if (result?.body() != null) {
             _artistDetail.postValue(result.body())
         }
     }
 
-    suspend fun getAlbumDetail(artistName: String, albumName:String){
+    suspend fun getArtistTopGenres(artistName: String) {
+        val result = genresService.getArtistTopGenres(artistName = artistName)
+        if (result?.body() != null) {
+            _genres.postValue(result.body())
+        }
+    }
+
+    suspend fun getAlbumDetail(artistName: String, albumName: String) {
         val result = genresService.getAlbumDetail(artistName = artistName, albumName = albumName)
         if (result?.body() != null) {
             _albumDetail.postValue(result.body())
         }
     }
 
-
+    suspend fun getAlbumTopGenres(artistName: String, albumName: String) {
+        val result = genresService.getAlbumTopGenres(artistName = artistName, albumName = albumName)
+        if (result?.body() != null) {
+            _genres.postValue(result.body())
+        }
+    }
 
 }

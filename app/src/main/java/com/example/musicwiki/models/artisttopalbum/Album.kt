@@ -1,5 +1,7 @@
 package com.example.musicwiki.models.artisttopalbum
 
+import com.example.musicwiki.models.common.Image
+
 data class Album(
     val artist: Artist,
     val image: List<Image>,
