@@ -18,4 +18,4 @@ The Artist Detail Screen includes information about the artist. Also, it shows t
 
 ![](Image/img_6.png)
 
-
+## 4. Album Detail Screen 
