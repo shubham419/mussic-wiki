@@ -6,6 +6,7 @@ import com.example.musicwiki.api.GenresService
 import com.example.musicwiki.models.album.AlbumList
 import com.example.musicwiki.models.artistdetail.ArtistDetail
 import com.example.musicwiki.models.artists.ArtistsList
+import com.example.musicwiki.models.artisttoptrack.ArtistTopTrack
 import com.example.musicwiki.models.genres.TopGenresList
 import com.example.musicwiki.models.genresdetail.GenresDetail
 import com.example.musicwiki.models.track.TracksList
@@ -27,8 +28,8 @@ class GenresRepository(private val genresService: GenresService) {
     private val _topTracksList = MutableLiveData<TracksList>()
     val topTracksList: LiveData<TracksList> = _topTracksList
 
-    private val _artistTopTracksList = MutableLiveData<TracksList>()
-    val artistTopTracksList: LiveData<TracksList> = _artistTopTracksList
+    private val _artistTopTracksList = MutableLiveData<ArtistTopTrack>()
+    val artistTopTracksList: LiveData<ArtistTopTrack> = _artistTopTracksList
 
     private val _artistTopAlbumList = MutableLiveData<AlbumList>()
     val artistTopAlbumList: LiveData<AlbumList> = _artistTopAlbumList
