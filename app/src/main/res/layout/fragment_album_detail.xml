@@ -18,6 +18,7 @@
 
         <ImageView
             android:id="@+id/imageView"
+            set_image_url="@{model.imageLink}"
             android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:scaleType="centerCrop"

@@ -32,7 +32,7 @@
                 android:orientation="horizontal"
                 android:clickable="true"
                 android:background="?android:attr/selectableItemBackground"
-                android:onClick="@{() -> model.onArtistClick(artist.name)}"
+                android:onClick="@{() -> model.onArtistClick(artist.name,artist.image[3].text )}"
                 >
 
 

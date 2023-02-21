@@ -16,10 +16,10 @@ fun loadImage(view: ImageView, imageUrl: List<Image>) {
         .into(view)
 }
 
-//@BindingAdapter("set_image_mega")
-//fun loadImageMega(view: ImageView, imageUrl: List<Image>) {
-//    Glide.with(view.context)
-//        .load(imageUrl[2].text).apply(RequestOptions().circleCrop())
-//        .placeholder(R.drawable.artist_paceholder_img)
-//        .into(view)
-//}
+@BindingAdapter("set_image_url")
+fun loadImageUrl(view: ImageView, imageUrl: String) {
+    Glide.with(view.context)
+        .load(imageUrl).apply(RequestOptions().circleCrop())
+        .placeholder(R.drawable.artist_paceholder_img)
+        .into(view)
+}

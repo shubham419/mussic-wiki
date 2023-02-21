@@ -26,6 +26,7 @@
 
                 <ImageView
                     android:id="@+id/image"
+                    set_image="@{track.image}"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="sans-serif-condensed"
@@ -33,16 +34,20 @@
                     android:src="@drawable/artist_paceholder_img"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.5" />
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
+                    android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{track.name}"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
+                    android:background="@drawable/curved_corner"
+                    android:padding="5dp"
+                    android:gravity="center_horizontal"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"

@@ -31,7 +31,7 @@
                 android:orientation="horizontal"
                 android:clickable="true"
                 android:background="?android:attr/selectableItemBackground"
-                android:onClick="@{() -> shared_model.onAlbumClick(album.name, album.artist.name)}"
+                android:onClick="@{() -> shared_model.onAlbumClick(album.name, album.artist.name,album.image[3].text )}"
                 >
 
 

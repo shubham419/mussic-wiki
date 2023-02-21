@@ -27,11 +27,12 @@
                 android:layout_height="match_parent"
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
-                android:onClick="@{() -> shared_view_model.onAlbumClick(album.name, album.artist.name)}"
+                android:onClick="@{() -> shared_view_model.onAlbumClick(album.name, album.artist.name, album.image[3].text)}"
                 >
 
                 <ImageView
                     android:id="@+id/image"
+                    set_image="@{album.image}"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="sans-serif-condensed"
@@ -48,9 +49,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{album.name}"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
+                    android:background="@drawable/curved_corner"
+                    android:padding="5dp"
                     android:textSize="20sp"
                     android:textStyle="bold"
+                    android:gravity="center_horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"

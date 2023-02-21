@@ -28,15 +28,14 @@ class ArtistDetailFragment : Fragment() {
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentArtistDetailBinding.inflate(inflater, container, false)
-        val artistName = sharedViewModel.artistName.value.toString()
+
         val viewModel = ViewModelProvider(
-            this,
-            ArtistDetailFragmentViewModelFactory(artistName)
+            this, ArtistDetailFragmentViewModelFactory(
+                sharedViewModel.artistName.value.toString(), sharedViewModel.imageLink.value.toString()
+            )
         )[ArtistDetailFragmentViewModel::class.java]
         adapter = ArtistTopTrackListAdapter()
         adapterAlbum = ArtistTopAlbumListAdapter(sharedViewModel)
@@ -59,8 +58,8 @@ class ArtistDetailFragment : Fragment() {
                 findNavController().navigate(R.id.action_artistDetailFragment_to_genresDetailFragment)
             }
         }
-        sharedViewModel.albumDetailTransaction.observe(viewLifecycleOwner){
-            if(it){
+        sharedViewModel.albumDetailTransaction.observe(viewLifecycleOwner) {
+            if (it) {
                 findNavController().navigate(R.id.action_artistDetailFragment_to_albumDetailFragment)
             }
         }

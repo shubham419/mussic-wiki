@@ -24,6 +24,9 @@ class SharedViewModel : ViewModel() {
     private val _albumName = MutableLiveData<String>()
     val albumName: LiveData<String> = _albumName
 
+    private val _imageLink = MutableLiveData<String>()
+    val imageLink: LiveData<String> = _imageLink
+
 
     fun onGenresClick(tag: String) {
         _genres.value = tag
@@ -31,15 +34,17 @@ class SharedViewModel : ViewModel() {
         _transition.value = false
     }
 
-    fun onArtistClick(artistName: String) {
+    fun onArtistClick(artistName: String, imageLink: String) {
         _artistName.value = artistName
+        _imageLink.value = imageLink
         _artistDetailTransaction.value = true
         _artistDetailTransaction.value = false
     }
 
-    fun onAlbumClick(albumName: String, artistName: String) {
+    fun onAlbumClick(albumName: String, artistName: String, imageLink: String) {
         _artistName.value = artistName
         _albumName.value = albumName
+        _imageLink.value = imageLink
         _albumDetailTransaction.value = true
         _albumDetailTransaction.value = false
     }

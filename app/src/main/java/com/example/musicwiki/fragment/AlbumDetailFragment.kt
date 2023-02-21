@@ -29,13 +29,12 @@ class AlbumDetailFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentAlbumDetailBinding.inflate(inflater, container, false)
-        val tageName = sharedViewModel.artistName.value.toString()
-        val albumName = sharedViewModel.albumName.value.toString()
         val viewModel = ViewModelProvider(
             this,
             AlbumDetailFragmentViewModelFactory(
                 sharedViewModel.artistName.value.toString(),
-                sharedViewModel.albumName.value.toString()
+                sharedViewModel.albumName.value.toString(),
+                sharedViewModel.imageLink.value.toString()
             )
         )[AlbumDetailFragmentViewModel::class.java]
         binding.model = viewModel
